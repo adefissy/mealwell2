@@ -1,0 +1,167 @@
+
+
+		body{
+			background-color: rgb(231,236,239);
+		}
+
+		/*#position{
+		position:sticky;
+		 top:0px;
+		}*/
+
+		.navheight{
+			height: 110px;
+			
+		}
+		.blue{
+			background-color: rgb(39,76,119);
+		}
+		
+
+		.minisection{
+
+			height: 180px;
+			margin-top: 320px;
+			margin-bottom: 50px;
+		
+
+		}
+
+		.minisection2{
+			
+			margin-top:-65px;
+			margin-right:150px;
+			z-index: 1;
+		}
+
+
+		.buttonLinks:hover{
+			background-color: rgb(191,219,247);
+		}
+
+		.buttonLinks{
+			background-color: rgb(103,148,54);
+			font-family: 'Lora', serif;
+			color:white;
+			font-size: 16px;
+
+
+		}
+		.links:hover{
+			background-color: rgb(191,219,247);
+			border-radius: 5px;
+			
+		}
+		#bmiBg{
+			background-color: rgb(231,236,239);
+		}
+
+		#bmiForm{
+			background-color: rgb(191,219,247);
+			
+		
+		}
+
+		#bmiText{
+			background-color: rgb(191,219,247);
+		}
+
+		.bmi{
+			border-radius:20px;
+			border: 1px solid #274c77;
+			margin-right: 55px;
+
+
+		}
+
+
+		.bmiHeading{
+			font-family: 'Lora', serif;
+			color:rgb(39,76,119);
+		
+		}
+
+		ul li a{
+			list-style-type: none;
+			text-decoration: none;
+		}
+
+		ul li{
+			list-style-type: none;
+			text-decoration: none;
+		}
+		
+		.footer{
+			height: 150px;
+			
+		}
+
+		.heading{
+			font-family: 'Lora', serif;
+			color:rgb(255,255,255);
+		
+		}
+		.headingBlue{
+			font-family: 'Lora', serif;
+			color: rgb(39,76,119);
+			font-weight: 450px
+		}
+	
+		.typos{
+			font-family: 'Roboto', sans-serif;
+		}
+		.typosBlue{
+			font-family: 'Roboto', sans-serif;
+			color: rgb(39,76,119);
+		}
+
+		.icon{
+			margin-top: 20px;
+		}
+
+		.cardDecoration{
+			text-decoration: none;
+			text-align: center;
+			color: rgb(39,76,119)
+		}   
+
+		.rowOverlay{
+			height:700px;
+			background-image:url('images/bg1.jpg');
+			
+		}
+
+		#overlay{
+			background-color:rgba(0,0,0,0.9);
+height: 700px;
+
+
+
+		} 
+
+		.aboutOverlay{
+			height:400px;
+			background-image:url('images/bgabout1.jpg');
+			
+		} 
+
+		#overlay2{
+			background-color:rgba(0,0,0,0.6);
+height: 400px;
+
+
+
+		}
+
+		hr.new4 {
+ 	 border: 5px solid rgb(0,255,0);
+	width: 50%;
+
+		}
+		#loginGradient{
+
+		background:linear-gradient(to right, rgb(39,76,119), rgb(103,148,54));
+		height:600px;	
+		}
+
+	
