@@ -20,7 +20,7 @@ if (empty($_POST['postcontent'])) {
 
 #sanitize
 $ptitle = sanitizeInputs($_POST['posttitle']);
-$pcontent = sanitizeInputs($_POST['postcontent']);
+$pcontent = $_POST['postcontent'];
 $category = $_POST['category'];
 
 
@@ -29,8 +29,6 @@ $category = $_POST['category'];
 include_once('bonds/post.php');
 
 $objpost = new Post();
-
-
 
 $output = $objpost->inputPost($ptitle,$pcontent,$category);
 
@@ -97,10 +95,10 @@ if ($output == true) {
 
               </select>
   			    </div>
-            <!-- <div class="col-sm-8 mt-3">
+            <div class="col-sm-8 mt-3">
               <label for="image" class="form-label typosBlue">Image</label>
               <input type="file" class="form-control" id="image" name="myfile">
-            </div> -->
+            </div>
             <!-- <div class="col-sm-8 mt-3">
               <label for="video" class="form-label typosBlue">Video</label>
               <input type="file" class="form-control" id="video" name="myfile">

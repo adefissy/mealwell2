@@ -9,7 +9,7 @@ class Post{
     public $posttitle;
     public $category;
     public $postcontents;
-    // public $postimage;
+    public $postimage;
     public $konn; //db handler
 
 
@@ -24,24 +24,24 @@ class Post{
 
     public function inputPost($posttitle, $postcontents, $category){
         //preppare statement
-        $statement = $this->konn->prepare("INSERT INTO post (post_title, post_contents, category_id) VALUES(?,?,?)");
+        $statement = $this->konn->prepare("INSERT INTO post (post_title, post_contents, category_id, post_image) VALUES(?,?,?,?)");
 
-        // $ext = array('jpg', 'png', 'jpeg', 'gif');
-        // $obj = new Common;
-        //     $postimage = $obj->uploadAnyFile("photos/", 1048576, $ext);
+        $ext = array('jpg', 'png', 'jpeg', 'gif');
+        $obj = new Common;
+            $postimage = $obj->uploadAnyFile("photos/", 1048576, $ext);
 
-        //     echo "<pre>";
-        //     print_r($postimage);
-        //     echo "</pre>";
-        //     exit();
+            // echo "<pre>";
+            // print_r($postimage);
+            // echo "</pre>";
+            // exit();
             
 
-            // if (array_key_exists('success', $postimage)) {
+            if (array_key_exists('success', $postimage)) {
 
-            //     $filenamep = $postimage['success'];
+            $filenamep = $postimage['success'];
 
 
-        $statement->bind_param("ssi",$posttitle,$postcontents,$category);
+        $statement->bind_param("ssis", $posttitle, $postcontents, $category, $filenamep);
 
         $statement->execute();
 
@@ -51,9 +51,9 @@ class Post{
             return $statement->error;
         }
 
-    // }else{
-    //     return $postimage ['error'];
-    // }
+    }else{
+        return $postimage ['error'];
+    }
 
     }
 

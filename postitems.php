@@ -78,7 +78,7 @@
                     
                 ?>
                     <tr>
-                        <td>#</td>
+                        <td> <?php echo $postid ?></td>
                         <td><?php echo $value ['post_title'] ?></td>
                         <td><?php echo $value ['category_name'] ?></td>
                         <td><?php echo $value ['post_contents'] ?></td>
