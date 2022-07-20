@@ -5,7 +5,7 @@
       <small>POSTS</small>
     </h1>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-9">
             <a href="addpost.php" class="btn btn-primary mb-3">Add Post</a>
 
             <?php
@@ -49,8 +49,8 @@
                     <th>Post Title</th>
                     <th>Category</th>
                     <th>Post Contents</th>
-                   
                     <th>Image</th>
+                    <th>Action</th>
                    
                   
                 </thead>
@@ -65,9 +65,9 @@
                 
                 $output = $objpost->listpost();
 
-                echo "<pre>";
-                print_r($output);
-                echo "</pre>";
+                // echo "<pre>";
+                // print_r($output);
+                // echo "</pre>";
 
 
                 if (count($output)>0) {
@@ -88,7 +88,12 @@
                               # code...
                             ?>
                               <img src="photos/<?php echo $value['post_image']?>" alt="<?php echo $category_name?> picture" class="img-fluid">
-                            <?php  } ?></td>
+                            <?php  } ?>
+                        </td>
+                        <td>
+                          <a href="editpost.php?postid=<?php echo $postid ?>" class="text-success">Edit</a> || <a href="deletepost.php?postid=<?php echo $postid ?>&posttitle=<?php echo $value['post_title']?>" class="text-danger">Delete</a>
+                          
+                        </td>
                             
                             
                     </tr>

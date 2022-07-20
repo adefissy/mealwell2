@@ -3,11 +3,6 @@
 
 class Common {
 
-    //member variables
-
-
-
-
     //member functions
     public function  uploadAnyFile($dest, $size, $ext){
 

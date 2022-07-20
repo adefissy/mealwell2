@@ -1,9 +1,15 @@
-<?php include_once "porterheader.php";?>
+<?php 
+include_once "porterheader.php";
+include_once "bonds/post.php";
+
+$objpost = new Post();
+
+$editdata = $objpost->getPost($_REQUEST['postid'])
+?>
 
 
 <?php 
-
-if (isset($_POST['btnaddpost'])) {
+if (isset($_POST['btneditpost'])) {
 
 #validate
 
@@ -17,48 +23,46 @@ if (empty($_POST['postcontent'])) {
   $errors['postcontent'] = "Posts contents field cannot be empty";
 }
 
-if (empty($errors)) {
 
-  //sanitize
-  include_once ("bonds/sanitize.php");
 
-  $postobj = new Sanitize;
 
-$ptitle = $postobj->sanitizeInputs($_POST['posttitle']);
-$pcontent = $postobj->sanitizeInputs($_POST['postcontent']);
+#sanitize
+$ptitle = sanitizeInputs($_POST['posttitle']);
+$pcontent = $_POST['postcontent'];
 $category = $_POST['category'];
+$postid =$_POST['postid'];
 
 
+include_once "bonds/post.php";
 
+$objpost = new Post();
 
+$update = $objpost->updatePost($ptitle, $pcontent, $category, $postid);
 
-    include_once('bonds/post.php');
+ #check if its successful
+ if ($update == 1) {
+  $msg = "Your Post was updated successfully";
 
-    $objpost = new Post();
+  //redirect
 
-    $output = $objpost->inputPost($ptitle,$pcontent,$category);
+  header("Location: postitems.php?m=$msg");
+  
+}elseif ($update == 0) {
+  $msg = "No changes was made";
 
-    if ($output == true) {
-      $msg = "Post was successfully added";
+  //redirect
+  header("Location: postitems.php?m=$msg");
+}else{
 
-      //redirect
-
-      header("Location: postitems.php?m=$msg");
-      
-    }else{
-
-      $errors[] = "Oops! Could not add post ".$statement->error;
-    }
+  $errors[] = "Sorry! Could not update post. ".$update;
 }
-
-
-
 }
 
 ?>
     <div class="container">
         <div class="row">
             <div class="col-sm-8 mt-3">
+            
             <?php
         
         if (!empty($errors)) {
@@ -74,7 +78,15 @@ $category = $_POST['category'];
         
         ?>
  
-              <form action="" method="post"  name="addpost" enctype="multipart/form-data">
+              <form action="editpost.php?postid=<?php
+        
+        
+        if (isset($_REQUEST['postid'])) {
+          echo $_REQUEST['postid'];
+        }
+        
+        
+        ?>" method="post"  name="editpost" enctype="multipart/form-data">
                 <label for="ptitle" class="form-label typosBlue">Post Title</label>
                 <input type="text" name="posttitle" id="ptitle" class="form-control"/>
 
@@ -122,9 +134,17 @@ $category = $_POST['category'];
 
             </div>
 
-
+            <input type="hidden" name="postid" value="<?php
+          
+          
+          if (isset($editdata['post_id'])) {
+            echo $editdata['post_id'];
+          }
+          
+          
+          ?>">
             <div class="col-sm-3 mt-3">
-                <input type="submit" class="form-control btn btn-success mb-3" id="btnaddpost" name="btnaddpost" value="Add Post">
+                <input type="submit" class="form-control btn btn-success mb-3" id="btneditpost" name="btneditpost" value="Update">
             </div>
         </div>
 </div>

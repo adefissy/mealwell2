@@ -1,6 +1,6 @@
 <?php  
 	// class definition
-	class Common{
+	class Sanitize{
 		// member variables
 
 		// member functions

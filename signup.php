@@ -62,13 +62,13 @@
 			//sanitation
 
 			include_once "bonds/sanitize.php";
-			$comobj = new Common;
+			$sanobj = new Sanitize;
 
-			$firstname = $comobj->sanitizeInputs($_POST['fname']);
-			$surname = $comobj->sanitizeInputs($_POST['lname']);
-			$mail = $comobj->sanitizeInputs($_POST['email']);
-			$gender = $comobj->sanitizeInputs($_POST['gender']);
-			$dateob = $comobj->sanitizeInputs($_POST['dateofbirth']);
+		  	$firstname = $sanobj->sanitizeInputs($_POST['fname']);
+			$surname = $sanobj->sanitizeInputs($_POST['lname']);
+			$mail = $sanobj->sanitizeInputs($_POST['email']);
+			$gender = $sanobj->sanitizeInputs($_POST['gender']);
+			$dateob = $sanobj->sanitizeInputs($_POST['dateofbirth']);
 			$pswd=$_POST['newpassword'];
 			//create user class
 

@@ -23,10 +23,12 @@ class Post{
     }
 
     public function inputPost($posttitle, $postcontents, $category){
+        
         //preppare statement
-        $statement = $this->konn->prepare("INSERT INTO post (post_title, post_contents, category_id, post_image) VALUES(?,?,?,?)");
+        $statement = $this->konn->prepare("INSERT INTO post(post_title, post_contents, category_id, post_image) VALUES(?,?,?,?)");
 
         $ext = array('jpg', 'png', 'jpeg', 'gif');
+
         $obj = new Common;
             $postimage = $obj->uploadAnyFile("photos/", 1048576, $ext);
 
@@ -36,28 +38,32 @@ class Post{
             // exit();
             
 
-            if (array_key_exists('success', $postimage)) {
+        if (array_key_exists('success', $postimage)) {
 
-            $filenamep = $postimage['success'];
-
+        $filenamep = $postimage['success'];
+// var_dump($posttitle, $postcontents, $category, $filenamep);
+// exit;
 
         $statement->bind_param("ssis", $posttitle, $postcontents, $category, $filenamep);
 
         $statement->execute();
 
-        if ($statement->affected_rows == 1) {
-           return true;
+
+            if ($statement->affected_rows == 1) {
+                return true;
+            }else{
+                return $statement->error;
+            }
+
+
         }else{
-            return $statement->error;
+            return $postimage ['error'];
         }
 
-    }else{
-        return $postimage ['error'];
+   
     }
 
-    }
-
-    #begin list clubs
+    
 
     function listpost(){
 
@@ -100,6 +106,70 @@ class Post{
             }
         }
         return $record;
+    }
+
+    function getPost($postid){
+
+        #prepare statement
+        $statement = $this->konn->prepare("SELECT * FROM post WHERE post_id=?");
+
+        #bind parameter
+
+        $statement->bind_param("i", $postid);
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        return $result->fetch_assoc();
+     }
+
+     function updatePost($posttitle, $postcontents, $category, $postid){
+
+        //prepare statement
+        $statement = $this->konn->prepare("UPDATE post SET post_title=?, post_contents=?, category_id=? WHERE post_id=?");
+
+        //bind parameters
+
+        $statement->bind_param("ssii",$posttitle, $postcontents, $category, $postid);
+
+        //execute
+        $statement->execute();
+
+        //check if record was updated
+         return $statement->affected_rows;
+        
+
+    }
+
+    public function deletePost($postid){
+
+        //prepare statement
+        $stmt = $this->konn->prepare("DELETE FROM post WHERE post_id=?");
+
+        //bind parameter
+        $stmt->bind_param("i",$postid);
+
+        $stmt->execute();
+
+        //check
+        if ($stmt->affected_rows == 1) {
+           $msg = "Post was successfully deleted!";
+
+           header("Location: postitems.php?info=$msg");
+           exit();
+
+        }else{
+            $msg = "Post could not be deleted!";
+
+            header("Location: postitems.php?err=$msg");
+            exit;
+        }
+
+
+
     }
 }
 
