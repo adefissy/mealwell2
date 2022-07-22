@@ -70,7 +70,7 @@
 		         		 	<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Nutri-Safe</a>
 		        		</li>
 		        		<li class="nav-item">
-		          			<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Eating</a>
+		          			<a class="nav-link text-white typos links" href="healthyeating.php" style="font-size: 25px;">Healthy Eating</a>
 		        		</li>
 		       			<li class="nav-item">
 		          		    <a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Recipes</a>

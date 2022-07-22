@@ -50,6 +50,7 @@
                     <th>Category</th>
                     <th>Post Contents</th>
                     <th>Image</th>
+                    <th>Date Posted</th>
                     <th>Action</th>
                    
                   
@@ -89,6 +90,10 @@
                             ?>
                               <img src="photos/<?php echo $value['post_image']?>" alt="<?php echo $category_name?> picture" class="img-fluid">
                             <?php  } ?>
+                        </td>
+
+                        <td><?php echo  date('l jS F, Y h:i:s A',
+                            strtotime($value['date_posted'])) ?>
                         </td>
                         <td>
                           <a href="editpost.php?postid=<?php echo $postid ?>" class="text-success">Edit</a> || <a href="deletepost.php?postid=<?php echo $postid ?>&posttitle=<?php echo $value['post_title']?>" class="text-danger">Delete</a>

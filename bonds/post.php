@@ -41,8 +41,7 @@ class Post{
         if (array_key_exists('success', $postimage)) {
 
         $filenamep = $postimage['success'];
-// var_dump($posttitle, $postcontents, $category, $filenamep);
-// exit;
+
 
         $statement->bind_param("ssis", $posttitle, $postcontents, $category, $filenamep);
 
@@ -65,7 +64,7 @@ class Post{
 
     
 
-    function listpost(){
+    public function listpost(){
 
         #prepare statement
 
@@ -108,7 +107,7 @@ class Post{
         return $record;
     }
 
-    function getPost($postid){
+    public function getPost($postid){
 
         #prepare statement
         $statement = $this->konn->prepare("SELECT * FROM post WHERE post_id=?");
@@ -126,7 +125,36 @@ class Post{
         return $result->fetch_assoc();
      }
 
-     function updatePost($posttitle, $postcontents, $category, $postid){
+    
+       public function postIndex(){
+
+        #prepare statement
+
+        $statement = $this->konn->prepare("SELECT * FROM post");
+
+        #execute
+
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $precords = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+                     $precords[] = $row;
+            }
+
+          
+        }
+         return $precords;
+     }
+
+    
+     public function updatePost($posttitle, $postcontents, $category, $postid){
 
         //prepare statement
         $statement = $this->konn->prepare("UPDATE post SET post_title=?, post_contents=?, category_id=? WHERE post_id=?");

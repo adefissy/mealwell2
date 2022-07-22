@@ -4,7 +4,7 @@ include_once "bonds/post.php";
 
 $objpost = new Post();
 
-$editdata = $objpost->getPost($_REQUEST['postid'])
+$editdata = $objpost->getPost($_REQUEST['postid']);
 ?>
 
 

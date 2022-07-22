@@ -25,7 +25,7 @@ if (empty($errors)) {
   $postobj = new Sanitize;
 
 $ptitle = $postobj->sanitizeInputs($_POST['posttitle']);
-$pcontent = $postobj->sanitizeInputs($_POST['postcontent']);
+$pcontent = $_POST['postcontent'];
 $category = $_POST['category'];
 
 
