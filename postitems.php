@@ -91,8 +91,12 @@
                               <img src="photos/<?php echo $value['post_image']?>" alt="<?php echo $category_name?> picture" class="img-fluid">
                             <?php  } ?>
                         </td>
+                        <!-- <td>
 
-                        <td><?php echo  date('l jS F, Y h:i:s A',
+                        <video src=""></video>
+                        </td> -->
+
+                        <td><?php echo  date('l jS F',
                             strtotime($value['date_posted'])) ?>
                         </td>
                         <td>

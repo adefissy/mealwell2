@@ -92,11 +92,15 @@ class Post{
     }
 
     public function getCategory(){
-        $stmt = $this->konn->prepare("SELECT category_id, category_name FROM category");
+        $stmt = $this->konn->prepare("SELECT category_id, category_name FROM category");//category name should be there
+
+        // $stmt->bind_param("i", $categoryid); //changes here..not there
 
         $stmt->execute();
 
         $results = $stmt->get_result();
+
+        // return $results->fetch_assoc(); //shouldnt be there
 
         $record = array();
         if ($results->num_rows > 0) {
@@ -123,15 +127,79 @@ class Post{
         $result = $statement->get_result();
 
         return $result->fetch_assoc();
+
      }
 
     
-       public function postIndex(){
+       public function postNutriSafe(){
 
         #prepare statement
 
-        $statement = $this->konn->prepare("SELECT * FROM post");
+        $statement = $this->konn->prepare("SELECT * FROM post  WHERE category_id=?");
+        
+        $categoryid = 1;
 
+        $statement->bind_param("i",$categoryid);
+        #execute
+
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $precords = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+                     $precords[] = $row;
+            }
+
+          
+        }
+         return $precords;
+     }
+
+     public function postHealthyEating(){
+
+        #prepare statement
+
+        $statement = $this->konn->prepare("SELECT * FROM post  WHERE category_id=?");
+        
+        $categoryid = 2;
+
+        $statement->bind_param("i",$categoryid);
+        #execute
+
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $precords = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+                     $precords[] = $row;
+            }
+
+          
+        }
+         return $precords;
+     }
+
+     public function postHealthyRecipes(){
+
+        #prepare statement
+
+        $statement = $this->konn->prepare("SELECT * FROM post  WHERE category_id=?");
+        
+        $categoryid = 3;
+
+        $statement->bind_param("i",$categoryid);
         #execute
 
         $statement->execute();
@@ -196,9 +264,10 @@ class Post{
             exit;
         }
 
-
-
     }
+
+   
+    
 }
 
 ?>

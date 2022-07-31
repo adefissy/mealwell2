@@ -12,7 +12,7 @@
 				<h1 class="heading">NutriSafe</h1>
 				<p class="typos text-white">Everything Food Safety. Safe food begins from purchase and storage to preparation</p>
 
-				<button class="btn buttonLinks">More</button>
+				<button class="btn buttonLinks"><a href="nutrisafe.php" class="text-decoration:none;text-white">More</a></button>
 			</div>
 		</div>
 	</div>
@@ -28,7 +28,7 @@
 				</div>
 			<div class="col-sm-3"  style="margin-left: 150px;">
 
-				<a href="facebook.com" target="_blank" class="cardDecoration">
+			<a href="healthyeating.php" target="_blank" class="cardDecoration">
 					<div class="card links">
   					<img src="images/nutrisafe2.jpg" class="card-img-top" alt="Card picture">
 
@@ -42,7 +42,7 @@
 				
 			</div>
 			<div class="col-sm-3">
-			<a href="facebook.com" target="_blank" class="cardDecoration">
+			<a href="healthyeating.php" target="_blank" class="cardDecoration">
 				<div class="card links">
   					<img src="images/fruit.jpg" class="card-img-top" alt="Card picture">
 
@@ -56,7 +56,7 @@
 				
 			</div>
 			<div class="col-sm-3">
-			<a href="facebook.com" target="_blank" class="cardDecoration">
+			<a href="healthyeating.php" target="_blank" class="cardDecoration">
 				<div class="card links">
   					<img src="images/water.jpg" class="card-img-top" alt="Card picture">
 
@@ -83,15 +83,16 @@
 				<form>
   					<div class="mt-3">
     					<label for="bmiHeight" class="form-label headingBlue">Height</label>
-    					<input type="text" class="form-control" placeholder="height in cm" id="bmiHeight">
+    					<input type="number" class="form-control" placeholder="height in cm" id="bmiHeight" min="1" max="635">
     				</div>
     					
   					<div class="mt-3">
    						 <label for="bmiWeight" class="form-label headingBlue">Weight</label>
-    					<input type="text" class="form-control" placeholder="weight in kg" id="bmiWeight">
+    					<input type="number" class="form-control" placeholder="weight in kg" id="bmiWeight" min="54" max="272">
  					</div>
   						
-  						<button type="submit" class="btn btn-outline buttonLinks mt-5 mb-3 center">Calculate</button>
+  						<button type="submit" class="btn btn-outline buttonLinks mt-5 mb-3 center" id="btnCalc">Calculate</button>
+					<div id="result"></div>
 				</form>
 			
 			</div>
@@ -136,7 +137,7 @@
 							<h1 class="heading">When in need of recipes</h1>
 							
 
-							<button class="btn buttonLinks mb-3">More Recipes</button>
+							<button class="btn buttonLinks mb-3"><a href="healthyrecipes.php" style="text-decoration:none;text-white">More Recipes</a></button>
 							
 						</div>
 						

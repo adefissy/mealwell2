@@ -61,23 +61,23 @@
 				<nav class="navbar blue navheight text-white" id="position">
 					<ul class="nav justify-content-right">
 						<li class="nav-item">
-							<a class="navbar-brand text-white" href="#">
+							<a class="navbar-brand text-white" href="dashboard.php">
       							
     						     MealWell
     						</a>
 		          		</li>
 		        		<li class="nav-item">
-		         		 	<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Nutri-Safe</a>
+		         		 	<a class="nav-link text-white typos links" href="nutrisafe.php" style="font-size: 25px;">Nutri-Safe</a>
 		        		</li>
 		        		<li class="nav-item">
 		          			<a class="nav-link text-white typos links" href="healthyeating.php" style="font-size: 25px;">Healthy Eating</a>
 		        		</li>
 		       			<li class="nav-item">
-		          		    <a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Recipes</a>
+		          		    <a class="nav-link text-white typos links" href="healthyrecipes.php" style="font-size: 25px;">Healthy Recipes</a>
 		        		</li>
 
 		        		<li class="nav-item">
-		          		    <a href="signup.php" target="_blank" class=" nav-link typos links"  style="font-size: 30px; color: rgb(103,148,54);"> Hello 
+		          		    <p class="nav-link typos" style="font-size: 20px; color: rgb(103,148,54);"> Hello 
 							  
 								<?php 
                                     if (isset($_SESSION['firstname'])) {
@@ -85,10 +85,10 @@
                                     }
              
                                  ?>
-                            </a>
+                            </p>
 		        		</li>
 						<li class="nav-item">
-		          		    <a href="logout.php" target="_blank" class=" nav-link typos links" style="font-size: 20px;"> Logout</a>
+		          		    <a href="logout.php" class=" nav-link typos links" style="font-size: 20px;"> Logout</a>
 		        		</li>
 
                        

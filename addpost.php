@@ -110,10 +110,11 @@ $category = $_POST['category'];
               <label for="image" class="form-label typosBlue">Image</label>
               <input type="file" class="form-control" id="image" name="myfile">
             </div>
-            <!-- <div class="col-sm-8 mt-3">
+
+             <div class="col-sm-8 mt-3">
               <label for="video" class="form-label typosBlue">Video</label>
-              <input type="file" class="form-control" id="video" name="myfile">
-            </div> -->
+              <input type="text" class="form-control" id="video" name="myvideo">
+            </div> 
 					
             <div class="col-sm-12 mt-3">
                 <p class="typosBlue">Post Contents</p>

@@ -127,7 +127,62 @@ class User {
         }
         
       }
-    }
-    #end function signup
 
+
+      public function logout(){
+
+        session_start();
+        session_destroy();
+  
+        header("Location: login.php");
+        exit();
+      }
+      
+
+       public function insertComment($comment, $userid){
+        
+        //preppare statement
+        $statement = $this->konn->prepare("INSERT INTO comment(comment, userid) VALUES(?,?)");
+
+        $statement->bind_param("si", $comment, $userid);
+
+        $statement->execute();
+
+
+            if ($statement->affected_rows == 1) {
+                
+                return true;
+           
+            }else{
+                return $statement->error;
+            }
+   
+    }
+
+    public function getComment($comment){
+
+        #prepare statement
+        $statement = $this->konn->prepare("SELECT * FROM comment JOIN post ON post.comment_id = post.category_id");
+
+        #bind parameter
+
+        $statement->bind_param("i", $postid);
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        return $result->fetch_assoc();
+     }
+
+
+
+  
+
+      
+    }
+   
+    
 ?>

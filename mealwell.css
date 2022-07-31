@@ -90,12 +90,18 @@
 			list-style-type: none;
 			text-decoration: none;
 		}
+
+		
 		
 		.footer{
 			height: 150px;
 			
 		}
 
+		.contentheading{
+
+			font-family: 'Lora', serif;
+		}
 		.heading{
 			font-family: 'Lora', serif;
 			color:rgb(255,255,255);
@@ -133,7 +139,7 @@
 
 		#overlay{
 			background-color:rgba(0,0,0,0.9);
-height: 700px;
+			height: 700px;
 
 
 
@@ -147,15 +153,13 @@ height: 700px;
 
 		#overlay2{
 			background-color:rgba(0,0,0,0.6);
-height: 400px;
-
-
+			height: 400px;
 
 		}
 
 		hr.new4 {
- 	 border: 5px solid rgb(0,255,0);
-	width: 50%;
+ 	 	border: 5px solid rgb(0,255,0);
+		width: 50%;
 
 		}
 		#loginGradient{
@@ -164,4 +168,7 @@ height: 400px;
 		height:600px;	
 		}
 
+		.submenu{
+			color: rgb(103,148,54);
+		}
 	
