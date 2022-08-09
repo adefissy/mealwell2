@@ -266,6 +266,27 @@ class Post{
 
     }
 
+
+    public function insertComment($userid,$postid,$comment){
+        
+        //preppare statement
+        $statement = $this->konn->prepare("INSERT INTO comment(user_id, post_id,comments) VALUES(?,?,?)");
+
+        $statement->bind_param("iis",$userid,$postid,$comment);
+
+        $statement->execute();
+
+
+            if ($statement->affected_rows == 1) {
+                
+                return true;
+           
+            }else{
+                return $statement->error;
+            }
+   
+    }
+
    
     
 }

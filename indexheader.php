@@ -39,31 +39,31 @@
 			<!--navigation-->
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-12">
 				<nav class="navbar blue navheight text-white" id="position">
 					<ul class="nav justify-content-right">
 						<li class="nav-item">
-							<a class="navbar-brand text-white" href="#">
+							<a class="navbar-brand text-white" href="indexcontent.php">
       							
     						     MealWell
     						</a>
 		          		</li>
 		        		<li class="nav-item">
-		         		 	<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Nutri-Safe</a>
+		         		 	<a class="nav-link text-white typos links" href="nutrisafe.php">Nutri-Safe</a>
 		        		</li>
 		        		<li class="nav-item">
-		          			<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Eating</a>
+		          			<a class="nav-link text-white typos links" href="healthyeating.php">Healthy Eating</a>
 		        		</li>
 		       			<li class="nav-item">
-		          		    <a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Recipes</a>
+		          		    <a class="nav-link text-white typos links" href="healthyrecipes.php">Healthy Recipes</a>
 		        		</li>
 
 		        		<li class="nav-item">
-		          		    <a href="signup.php" target="_blank" class=" nav-link text-white typos links" style="font-size: 20px;"> Sign up</a>
+		          		    <a href="signup.php" target="_blank" class=" nav-link text-white typos links"> Sign up</a>
 		        		</li>
 		      			</ul>
 
-		      			<form class="d-flex" style="margin-right: 15px; font-family:'Roboto', serif;">
+		      			<form class="d-flex typos">
 					        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 					        <button class="btn buttonLinks" type="submit">Search</button>
 					    </form>

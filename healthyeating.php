@@ -21,15 +21,15 @@
                         
                  
                     <a href="page_healthyeating.php?id=<?php echo $postid ?>">
-                        <div class="d-flex">
-                                <div>
+                        <div class="d-flex px-5">
+                                <div class="">
                                     <?php if (isset($value['post_image'])) { ?>
-                                       <img src="photos/<?php echo $value['post_image'] ?>" alt="post image" class="img-fluid" style="width: 200px; height:200px; margin-bottom: 10px;">
+                                       <img src="photos/<?php echo $value['post_image'] ?>" alt="post image" class="img" style="width: 200px; height:200px; margin-bottom: 10px;">
                                     <?php } ?>
 
                                 </div>
 
-                                <div>
+                                <div class="">
                                     <p> <?php echo $value['post_title'] ?> </p>
                 
                                     <span><b> <?php echo date('l jS F', strtotime($value['date_posted'])) ?></b></span>
@@ -41,6 +41,7 @@
                     
                          }?>
                         </div>
+                        
                     </a>
               </div>  
         </div>

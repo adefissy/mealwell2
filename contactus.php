@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign up</title>
+	<title>Contact Us</title>
 
 	<!-- required meta tags-->
 	
@@ -12,11 +12,12 @@
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
-							<!--external CSS---->
+							<!--external CSS-->
 
 	<link rel="stylesheet" type="text/css" href="mealwell.css">
 
-							<!---external JS---->
+							<!--external JS-->
+
 
 	<link rel="stylesheet" type="text/css" href="mealwell.js">
 
@@ -29,66 +30,42 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 </head>
 <body>
-	<?php
-	if (isset($_POST['signbtn'])) {
-		if (empty($_POST['fname'])) {
-			$errors ['fname'] = "Please fill first name field";
-		}
 
-		if (empty($_POST['lname'])) {
-			$errors ['lname'] = "Pleaase fill last name field";
-		}
-		
-		if (empty($_POST['email'])) {
-			$errors ['email'] = "Email field is required";
-		}
+ <?php if (isset($_POST['btnMsg'])) {
+    
+    if (empty($_POST['contactname'])) {
+        $errors ['contactname'] = "Please fill name field";
+    }
 
-		if (empty($_POST['newpassword'])) {
-			$errors ['newpassword'] = "Password field is required";
-		}
+    if (empty($_POST['contactmsg'])) {
+        $errors ['contactmsg'] = "Pleaase fill last name field";
+    }
 
-		if (empty($_POST['gender'])) {
-			$gen = $_POST['gender'];
-			$errors ['gender'] = "Please fill your gender";
-		}
+    if (empty($errors)) {
 
-		if (empty($_POST['dateofbirth'])) {
-			$errors ['dateofbirth'] = "Please fill date of birth";
-		}
+        $contactname = $_POST['contactname'];
+        $contactmsg = $_POST['contactmsg'];
+       
 
-		if (empty($errors)) {
-			//sanitation
+        include_once "bonds/user.php";
+        $contactobj = new User();
 
-			include_once "bonds/sanitize.php";
-			$sanobj = new Sanitize;
+        $output = $contactobj->contactMsg($contactname, $contactmsg);
 
-		  	$firstname = $sanobj->sanitizeInputs($_POST['fname']);
-			$surname = $sanobj->sanitizeInputs($_POST['lname']);
-			$mail = $sanobj->sanitizeInputs($_POST['email']);
-			$gender = $sanobj->sanitizeInputs($_POST['gender']);
-			$dateob = $sanobj->sanitizeInputs($_POST['dateofbirth']);
-			$pswd=$_POST['newpassword'];
-			//create user class
+        if ($output == true) {
+         
+           $msg = ":) We got your Message. Thank you for your Contacting Us";
+           
+        }else{
+            $errors[] = ":( something went wrong. Try again";
+        }
+    }
 
-			include_once "bonds/user.php";
-			$userobj = new User();
+ }?>
 
-			$output = $userobj->signup($firstname,$surname,$mail,$pswd,$gender,$dateob);
-
-			if ($output == true) {
-				//rediretc to success page
-				header("Location: signup_success.php");
-			}else{
-				$errors[] = "Snap :( something went wrong. Try again";
-			}
-		}
-	}
-
-
-
-	?>
 	<!--navigation-->
 	<div class="container-fluid">
 		<div class="row">
@@ -96,21 +73,27 @@
 				<nav class="navbar blue navheight text-white">
 					<ul class="nav justify-content-right">
 						<li class="nav-item">
-							<a class="navbar-brand text-white" href="#">
+							<a class="navbar-brand text-white" href="indexcontent.php">
       							
     						     MealWell
     						</a>
 		          		</li>
 		        		<li class="nav-item">
-		         		 	<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Nutri-Safe</a>
+		         		 	<a class="nav-link text-white typos links" href="nutrisafe.php" style="font-size: 25px;">Nutri-Safe</a>
 		        		</li>
 		        		<li class="nav-item">
-		          			<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Eating</a>
+		          			<a class="nav-link text-white typos links" href="healthyeating.php" style="font-size: 25px;">Healthy Eating</a>
 		        		</li>
 		       			<li class="nav-item">
-		          		    <a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Recipes</a>
+		          		    <a class="nav-link text-white typos links" href="healthyrecipes.php" style="font-size: 25px;">Healthy Recipes</a>
+		        		</li>
+
+		        		<li class="nav-item">
+		          		    <a href="signup.php" target="_blank" class=" nav-link text-white typos links" style="font-size: 20px;"> Sign up</a>
 		        		</li>
 		      			</ul>
+
+		      			
 
 		      			<form class="d-flex" style="margin-right: 15px; font-family:'Roboto', serif;">
 					        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -123,82 +106,57 @@
 	</div>
 					<!-----navigation ends here ------>
 
-					<!-- TEXT & FORM HERE--->
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-6 p-5">
-				<h3 class="headingBlue">We MealWell ;)</h3>
-				<h6 class="typosBlue">Sign up with us, lets have ride in living healthy</h6><hr>
-				<img src="images/healthyEating3.jpg" class="img-fluid" alt="image"/>
-			</div>
-			<div class="col-sm-6 p-5 typosBlue">
-				<h2 class="headingBlue">Be an Insider</h2>
-				<?php  
-					if (!empty($errors)) {
-						echo "<ul class='alert alert-danger'>";
-						foreach ($errors as $key => $value) {
-							echo "<li>$value</li>";
-						}
-						echo "</ul>";
-					
-					}
-				?>
+					<!---FORM-->
 				
-				<form action="" method="post" class="row g-3">
-					<div class="col-sm-6">
-						 <input type="text" name="fname" class="form-control" placeholder="First name" id="fname">
-					</div>
-					<div class="col-sm-6">
-						 <input type="text" name="lname" class="form-control" placeholder="Last name" id="lname">
-					</div>
-					<div class="col-sm-12">
-						 <input type="email" name="email" class="form-control" placeholder="Email address" id="emailSign">
-					</div>
-					<div class="col-sm-12">
-						 <input type="password" name="newpassword" class="form-control" placeholder="New password" id="pswdSign">
-					</div>
-					
-					<div class="col-sm-6">
-						<!-- <h6 class="typosBlue">Date of Birth</h6> -->
-						<input type="date" name="dateofbirth" class="form-control"  id="date">
-					</div>
-					
-					
-					<div class="col-sm-3 form-check-block typosBlue">
-  						<input class="form-check-input" id="femaleradio" type="radio" name="gender" value="Female">
-  						<label class="form-check-label" for="femaleradio">Female</label>
-  					</div>
-  					<div class="col-sm-3 form-check-block typosBlue">
+	
+	<div class="container rowOverlay">
+		<div class="row" id="overlay">
 
-						<input class="form-check-input" id="maleradio" type="radio" name="gender" value="Male">
-  						<label class="form-check-label" for="maleradio">Male</label>
-					</div>
+			<div class="col-sm-6" style="padding: 50px">
+
+
+				<span class="iconify-inline" data-icon="bi:telephone-fill" style="color: #679436; margin-top: 100px"></span> 
+				<p class="text-white typos">+234 7053 4829 97 , +234 9160 3510 93</p><br>
+				
+
+				<span class="iconify-inline" data-icon="ic:twotone-email" style="color: #679436;"></span> 
+				<p class="text-white typos">adenijiadefeesayo97@gmail.com</p>
+
+
+				
+			</div>
+			<div class="col-sm-6" >
+
+				<h3 class="heading mt-5 mb-5">Contact us</h3><hr class="text-white">
+				<h1 class="mt-5 mb-5">Got Questions, Comments or Suggestions for us?</h1>
+				<form action="" method="post">
+
+					<input class="form-control" type="text" name="contactname" placeholder="Name">
+
 					
-					<div class="col-12">
-						<button type="submit" class="btn buttonLinks heading" name="signbtn" id="signBtn">Sign up</button>
-						<a href="login.php" class="headingBlue">Login</a>
-					</div>
+  					<textarea class="form-control mt-3" placeholder="Your message here" name="contactmsg" style="height: 100px"></textarea>
+  
+				<button type="submit" class="btn buttonLinks heading mt-3" name="btnMsg">Send</button>
+
 				</form>
 
 				
 			</div>
-			
 		</div>
-		
 	</div>
 
-							<!---Footer--->
+
+					<!---Footer--->
 
 	<div class="container-fluid blue footer">
 		<div class="row">
 			<div class="col-sm-5 p-3" style="margin-left: 55px;">
 				<ul>
 					<li>
-						<a class="text-white typos links" href="about_us.html" target="_blank">About Us</a>
+						<a class="text-white typos links" href="about_us.html">About Us</a>
 					</li>
 					<li>
-						<a class="text-white typos links" href="contact_us.html" target="_blank">Contact Us</a>
+						<a class="text-white typos links" href="contact_us.html">Contact Us</a>
 					</li>
 					<li>
 						<a class="text-white typos links" href="#">Policy</a>
@@ -237,10 +195,10 @@
 	</div>
 
 	<link rel="stylesheet" type="text/css" href="jquerydownload.js">
-						<!-- JS Files-->
+						 <!-- JS Files-->
 	<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
 	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 		
-
 </body>
 </html>

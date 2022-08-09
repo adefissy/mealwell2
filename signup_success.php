@@ -28,81 +28,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-<?php session_start() ?>
-
-<?php
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-
-// include class file 
-include_once('bonds/user.php');
-
-//create object of user class
-
-$userobj = new User();
-
-$output = $userobj->adminlogin($_POST['adminuser'], $_POST['adminpsd']);
-
-// echo $output;
-
-if ($output == false) {
-
-  $error ="<div class='alert alert-danger'> Invalid username or password </div>";
-
-}else{
-
-		#login successful , then redirect to landing page
-
-		header("Location: admindashboard.php");
-		exit();
-
-}
-
-
-}   
-
-
-?>
-    
 	<div class="container-fluid">
-	<?php
-
-  if (isset($error)) {
-
-    echo $error;
-   
-  }
-  
-
-//   if (isset($_REQUEST['m'])) {
-
-//     echo "<div class='alert alert-danger'>". $_REQUEST['m']."</div>";
-//   }
-   ?>
 		<div class="row" id="loginGradient">
-			<div class="col-12 typosBlue loginBox">
+			<div class="col-6 typosBlue" id="signupsuccess">
 				<div>
-				<h2 class="headingBlue">ADMIN Login</h2>
-
-				<form action="" method="post">
-						
-					<div class="col-12 mt-3">
-					
-						<label class="form-label" for="adminLogin" id="logalert">Username</label>
-						<input class="form-control" type="username" name="adminuser" id="adminLogin">
-					</div>
-					<div class="col-12 mt-3">
-						<label class="form-label" for="pass">Password</label>
-						<input class="form-control "type="password" name="adminpsd" id="pass">
-					</div>
-					
-					<div class="col-12 mt-3">
-						<button type="submit" class="btn buttonLinks heading" id="aLoginBtn">Login</button>
 				
-					</div>
-					
-				</form>
+                <h6 class="alert alert-success" id="boxLogin">Registration Successful</h6>
+					<p><a href="login.php">Login Here </a></p>
 				
 			    </div>
 			</div>

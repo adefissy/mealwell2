@@ -16,12 +16,6 @@
 
 	<link rel="stylesheet" type="text/css" href="mealwell.css">
 
-							<!--external JS-->
-
-	<link rel="stylesheet" type="text/css" href="mealwell.js">
-
-
-
 							<!-- Fonts Links --->
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,8 +51,8 @@
 			<!--navigation-->
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12">
-				<nav class="navbar blue navheight text-white" id="position">
+			<div class="col-12">
+				<nav class="navbar blue navheight text-white" >
 					<ul class="nav justify-content-right">
 						<li class="nav-item">
 							<a class="navbar-brand text-white" href="dashboard.php">
@@ -67,28 +61,29 @@
     						</a>
 		          		</li>
 		        		<li class="nav-item">
-		         		 	<a class="nav-link text-white typos links" href="nutrisafe.php" style="font-size: 25px;">Nutri-Safe</a>
+		         		 	<a class="nav-link text-white topfont typos links" href="nutrisafe.php">Nutri-Safe</a>
 		        		</li>
 		        		<li class="nav-item">
-		          			<a class="nav-link text-white typos links" href="healthyeating.php" style="font-size: 25px;">Healthy Eating</a>
+		          			<a class="nav-link text-white topfont typos links" href="healthyeating.php">Healthy Eating</a>
 		        		</li>
 		       			<li class="nav-item">
-		          		    <a class="nav-link text-white typos links" href="healthyrecipes.php" style="font-size: 25px;">Healthy Recipes</a>
+		          		    <a class="nav-link text-white topfont typos links" href="healthyrecipes.php">Healthy Recipes</a>
 		        		</li>
 
 		        		<li class="nav-item">
-		          		    <p class="nav-link typos" style="font-size: 20px; color: rgb(103,148,54);"> Hello 
+		          		    <p class="nav-link"> Hello 
 							  
 								<?php 
                                     if (isset($_SESSION['firstname'])) {
                                     echo $_SESSION['firstname'];
+                                    
                                     }
              
                                  ?>
                             </p>
 		        		</li>
 						<li class="nav-item">
-		          		    <a href="logout.php" class=" nav-link typos links" style="font-size: 20px;"> Logout</a>
+		          		    <a href="logout.php" class="nav-link typos links"> Logout</a>
 		        		</li>
 
                        

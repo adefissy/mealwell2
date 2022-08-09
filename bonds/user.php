@@ -16,6 +16,7 @@ class User {
     public $user_dob;
     public $admin_username;
     public $admin_password;
+    public $comment;
     public $konn; //database connection handler
 
     //member functions
@@ -138,26 +139,57 @@ class User {
         exit();
       }
       
+      public function adminlogout(){
 
-       public function insertComment($comment, $userid){
-        
-        //preppare statement
-        $statement = $this->konn->prepare("INSERT INTO comment(comment, userid) VALUES(?,?)");
+        session_start();
+        session_destroy();
+  
+        header("Location: adminlogin.php");
+        exit();
+      }
 
-        $statement->bind_param("si", $comment, $userid);
+
+      public function contactMsg($contactname, $contactmsg){
+        $stmt=$this->konn->prepare("INSERT INTO contact(contact_name,contact_message) VALUES(?,?)");
+
+        $stmt->bind_param("ss", $contactname, $contactmsg);
+        $stmt->execute();
+
+        if ($stmt->affected_rows == 1) {
+          return true;
+        }else{
+            return false;
+        }
+      }
+
+      public function contactMsgList(){
+
+        #prepare statement
+
+        $statement = $this->konn->prepare("SELECT * FROM contact");
+
+        #execute
 
         $statement->execute();
 
+        #get result
+        $result = $statement->get_result();
 
-            if ($statement->affected_rows == 1) {
-                
-                return true;
-           
-            }else{
-                return $statement->error;
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+                     $records[] = $row;
             }
-   
+
+          
+        }
+         return $records;
     }
+
+       
 
     public function getComment($comment){
 

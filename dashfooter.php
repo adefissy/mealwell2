@@ -47,11 +47,20 @@
 	</div>
 
 
-	<link rel="stylesheet" type="text/css" href="jquerydownload.js">
+
 
 						<!-- JS Files-->
-	<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+						<!--external JS-->
+
+
+
+<script  src="jquerydownload.js"></script>
+<script src="mealwell.js"></script>
+
+<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+
+	
 		
 </body>
 </html>

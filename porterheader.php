@@ -80,7 +80,7 @@ function sanitizeInputs($data){
                 </a>
                   </li>
                 <li class="nav-item" style="margin-left: 350px">
-                  <a class="nav-link text-white typos links" href="admindashboard.html">Dashboard</a>
+                  <a class="nav-link text-white typos links" href="admindashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white typos links" href="#">See All Users</a>
@@ -89,11 +89,14 @@ function sanitizeInputs($data){
                     <a class="nav-link text-white typos links" href="postitems.php">View post</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-white typos links" href="contactmessage.php">View Message</a>
+                </li>
+                <li class="nav-item">
                       <a class="nav-link text-white typos links" href="#">Comments</a>
                 </li>
 
                 <li class="nav-item">
-                      <a href="logout.php" target="_blank" class=" nav-link text-white typos links">Logout</a>
+                      <a href="adminlogout.php" target="_blank" class=" nav-link text-white typos links">Logout</a>
                 </li>
                 </ul>   
         </nav>

@@ -60,28 +60,27 @@
 	}
 	 ?>
 
-	<div class="container-fluid">
-		<div class="row" id="loginGradient">
-			<div class="col-sm-12 typosBlue">
-				<div class="bg-white" style="height: 350px; width:350px;padding: 30px;margin-left: 350px; margin-top:150px;/*">
-				<h2 class="headingBlue" style="color: rgb(103,148,54);text-shadow:2px 3px 1px rgb(191,219,247);
-			">Login</h2>
+	<div class="container-fluid" id="loginGradient">
+		<div class="row">
+			<div class="col-6 typosBlue loginBox">
+				<div>
+				<h2 class="headingBlue">Login</h2>
 
 				<form action="" method="post">
 						
-					<div class="col-sm-12 mt-3">
+					<div class="col-12 mt-3">
 					
 						<label class="form-label" for="emailLogin" id="logalert">Email Address</label>
 						<input class="form-control" type="email" name="emailaddress" id="emailLogin">
 					</div>
-					<div class="col-sm-12 mt-3">
+					<div class="col-12 mt-3">
 						<label class="form-label" for="pswd">Password</label>
 						<input class="form-control "type="password" name="pword" id="pswd">
 					</div>
-					<span style="font-size:12px;color:rgb(103,148,54);">Forgotten password?</span>
-					<div class="col-sm-12 mt-3">
-						<button type="submit" class="btn buttonLinks heading" style="box-shadow: 4px 3px 2px white;" id="loginBtn">Login</button>
-						<a href="signup.html" class="headingBlue">Sign up</a>
+					<span id="forgottenPwd">Forgotten password?</span>
+					<div class="col-12 mt-3">
+						<button type="submit" class="btn buttonLinks heading" id="loginBtn">Login</button>
+						<a href="signup.php" class="headingBlue">Sign up</a>
 					</div>
 					
 				</form>

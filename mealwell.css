@@ -4,11 +4,6 @@
 			background-color: rgb(231,236,239);
 		}
 
-		/*#position{
-		position:sticky;
-		 top:0px;
-		}*/
-
 		.navheight{
 			height: 110px;
 			
@@ -16,22 +11,43 @@
 		.blue{
 			background-color: rgb(39,76,119);
 		}
+		.topfont{
+			font-size: 20px;
+		}
+		/* .userpersonal{
+			font-size: 25px;
+			font-family: 'Roboto', sans-serif;
+			color:rgb(103,148,54);
+		} */
 		
-
 		.minisection{
 
 			height: 180px;
-			margin-top: 320px;
-			margin-bottom: 50px;
-		
+			margin-left: -100px;
+			margin-top: 300px;
+	
+		}
 
+		#healthyTitle{
+			text-align:center;
+		}
+		#healthyButton{
+			
+			text-align:center;
+		}
+
+		.healthyCards{
+			justify-content: center;
 		}
 
 		.minisection2{
 			
-			margin-top:-65px;
-			margin-right:150px;
-			z-index: 1;
+			height: 180px;
+			margin-top:300px;
+			margin-right: -100px;
+			z-index:1;
+			margin-left: 50px;
+			
 		}
 
 
@@ -44,6 +60,7 @@
 			font-family: 'Lora', serif;
 			color:white;
 			font-size: 16px;
+			text-decoration:none;
 
 
 		}
@@ -171,4 +188,40 @@
 		.submenu{
 			color: rgb(103,148,54);
 		}
+
+		.loginBox{
+
+			height: 350px;
+			width:350px;
+			background-color: #fff;
+			margin-top: 130px;
+			margin-left: 450px;
+
+			
+		}
+
+		#signupsuccess{
+
+			height: 350px;
+			width:350px;
+			background-color: rgb(231,236,239);
+			margin-top: 130px;
+			margin-left: 450px;
+
+			
+		}
+
+		#forgottenPwd{
+			font-size:12px;
+			color:rgb(103,148,54);
+		}
+
+		#boxLogin{
+
+			margin-top: 130px;
+			
+		}
 	
+		@media (max-width:480px){
+
+		}
