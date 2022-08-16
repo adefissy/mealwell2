@@ -5,10 +5,10 @@
 			<div class="col-sm-5 p-3" style="margin-left: 55px;">
 				<ul>
 					<li>
-						<a class="text-white typos links" href="about_us.html" target="_blank">About Us</a>
+						<a class="text-white typos links" href="aboutus.php" target="_blank">About Us</a>
 					</li>
 					<li>
-						<a class="text-white typos links" href="contact_us.html" target="_blank">Contact Us</a>
+						<a class="text-white typos links" href="contactus.php" target="_blank">Contact Us</a>
 					</li>
 					<li>
 						<a class="text-white typos links" href="#">Policy</a>

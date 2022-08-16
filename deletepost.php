@@ -29,7 +29,7 @@
         <div class="col-sm-7">
 
         <?php if (isset($_REQUEST['postid'])) {
-            # code...
+          
         ?>
      
             <div class="alert alert-warning">

@@ -153,10 +153,10 @@
 			<div class="col-sm-5 p-3" style="margin-left: 55px;">
 				<ul>
 					<li>
-						<a class="text-white typos links" href="about_us.html">About Us</a>
+						<a class="text-white typos links" href="aboutus.php">About Us</a>
 					</li>
 					<li>
-						<a class="text-white typos links" href="contact_us.html">Contact Us</a>
+						<a class="text-white typos links" href="contactus.php">Contact Us</a>
 					</li>
 					<li>
 						<a class="text-white typos links" href="#">Policy</a>

@@ -15,7 +15,7 @@ $(document).ready(function(){
 	});
 	
 	$(document).ready(function(){
-		$('#signBtn-').click(function(){
+		$('#signBtn').click(function(){
 			var firstname = $('#fname').val();
 			var lastname = $('#lname').val();
 	
@@ -73,18 +73,4 @@ $(document).ready(function(){
 		   
 		  }
 
-// $(document).ready(function(){
-
-// 	$("#btnCalc").click(function(){
-// 		// alert ("yes");
-
-		
-// 		let  wt = parseInt(document.getElementById("bmiWeight").value),  //wt for weight
-  
-// 	   ht = parseInt(document.getElementById("bmiHeight").value),    //ht for height
-// 	   result = document.getElementById("result");
-
-// 	});
-
-// });
   

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign up</title>
+	<title>About Us</title>
 
 	<!-- required meta tags-->
 	
@@ -12,13 +12,10 @@
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
-							<!--external CSS---->
+							<!--external CSS-->
 
 	<link rel="stylesheet" type="text/css" href="mealwell.css">
-
-							<!---external JS---->
-
-	<link rel="stylesheet" type="text/css" href="mealwell.js">
+	
 
 							<!-- Fonts Links --->
 
@@ -29,66 +26,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 </head>
 <body>
-	<?php
-	if (isset($_POST['signbtn'])) {
-		if (empty($_POST['fname'])) {
-			$errors ['fname'] = "Please fill first name field";
-		}
 
-		if (empty($_POST['lname'])) {
-			$errors ['lname'] = "Pleaase fill last name field";
-		}
-		
-		if (empty($_POST['email'])) {
-			$errors ['email'] = "Email field is required";
-		}
-
-		if (empty($_POST['newpassword'])) {
-			$errors ['newpassword'] = "Password field is required";
-		}
-
-		if (empty($_POST['gender'])) {
-			$gen = $_POST['gender'];
-			$errors ['gender'] = "Please fill your gender";
-		}
-
-		if (empty($_POST['dateofbirth'])) {
-			$errors ['dateofbirth'] = "Please fill date of birth";
-		}
-
-		if (empty($errors)) {
-			//sanitation
-
-			include_once "bonds/sanitize.php";
-			$sanobj = new Sanitize;
-
-		  	$firstname = $sanobj->sanitizeInputs($_POST['fname']);
-			$surname = $sanobj->sanitizeInputs($_POST['lname']);
-			$mail = $sanobj->sanitizeInputs($_POST['email']);
-			$gender = $sanobj->sanitizeInputs($_POST['gender']);
-			$dateob = $sanobj->sanitizeInputs($_POST['dateofbirth']);
-			$pswd=$_POST['newpassword'];
-			//create user class
-
-			include_once "bonds/user.php";
-			$userobj = new User();
-
-			$output = $userobj->signup($firstname,$surname,$mail,$pswd,$gender,$dateob);
-
-			if ($output == true) {
-				//rediretc to success page
-				header("Location: signup_success.php");
-			}else{
-				$errors[] = "Snap :( something went wrong. Try again";
-			}
-		}
-	}
-
-
-
-	?>
 	<!--navigation-->
 	<div class="container-fluid">
 		<div class="row">
@@ -96,19 +37,23 @@
 				<nav class="navbar blue navheight text-white">
 					<ul class="nav justify-content-right">
 						<li class="nav-item">
-							<a class="navbar-brand text-white" href="#">
+							<a class="navbar-brand text-white" href="indexcontent.php">
       							
     						     MealWell
     						</a>
 		          		</li>
 		        		<li class="nav-item">
-		         		 	<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Nutri-Safe</a>
+		         		 	<a class="nav-link text-white typos links" href="nutrisafe.php" style="font-size: 25px;">Nutri-Safe</a>
 		        		</li>
 		        		<li class="nav-item">
-		          			<a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Eating</a>
+		          			<a class="nav-link text-white typos links" href="healthyeating.php" style="font-size: 25px;">Healthy Eating</a>
 		        		</li>
 		       			<li class="nav-item">
-		          		    <a class="nav-link text-white typos links" href="#" style="font-size: 25px;">Healthy Recipes</a>
+		          		    <a class="nav-link text-white typos links" href="healthyrecipes.php" style="font-size: 25px;">Healthy Recipes</a>
+		        		</li>
+
+		        		<li class="nav-item">
+		          		    <a href="signup.php" target="_blank" class=" nav-link text-white typos links" style="font-size: 20px;"> Sign up</a>
 		        		</li>
 		      			</ul>
 
@@ -121,84 +66,54 @@
 		</div>
 		
 	</div>
+
 					<!-----navigation ends here ------>
+<div class="container aboutOverlay">
+		<div class="row" id="overlay2">
 
-					<!-- TEXT & FORM HERE--->
+			<div class="col-sm-8">
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-6 p-5">
-				<h3 class="headingBlue">We MealWell ;)</h3>
-				<h6 class="typosBlue">Sign up with us, lets have ride in living healthy</h6><hr>
-				<img src="images/healthyEating3.jpg" class="img-fluid" alt="image"/>
+				<h1 class="" style="font-size: 100px; margin-top: 70px; font-family: 'Lora', serif;">Who we are</h1>
 			</div>
-			<div class="col-sm-6 p-5 typosBlue">
-				<h2 class="headingBlue">Be an Insider</h2>
-				<?php  
-					if (!empty($errors)) {
-						echo "<ul class='alert alert-danger'>";
-						foreach ($errors as $key => $value) {
-							echo "<li>$value</li>";
-						}
-						echo "</ul>";
-					
-					}
-				?>
-				
-				<form action="" method="post" class="row g-3">
-					<div class="col-sm-6">
-						 <input type="text" name="fname" class="form-control" placeholder="First name" id="fname">
-					</div>
-					<div class="col-sm-6">
-						 <input type="text" name="lname" class="form-control" placeholder="Last name" id="lname">
-					</div>
-					<div class="col-sm-12">
-						 <input type="email" name="email" class="form-control" placeholder="Email address" id="emailSign">
-					</div>
-					<div class="col-sm-12">
-						 <input type="password" name="newpassword" class="form-control" placeholder="New password" id="pswdSign">
-					</div>
-					
-					<div class="col-sm-6">
-						<!-- <h6 class="typosBlue">Date of Birth</h6> -->
-						<input type="date" name="dateofbirth" class="form-control"  id="date">
-					</div>
-					
-					
-					<div class="col-sm-3 form-check-block typosBlue">
-  						<input class="form-check-input" id="femaleradio" type="radio" name="gender" value="Female">
-  						<label class="form-check-label" for="femaleradio">Female</label>
-  					</div>
-  					<div class="col-sm-3 form-check-block typosBlue">
+</div>
+</div>
 
-						<input class="form-check-input" id="maleradio" type="radio" name="gender" value="Male">
-  						<label class="form-check-label" for="maleradio">Male</label>
-					</div>
-					
-					<div class="col-12">
-						<button type="submit" class="btn buttonLinks heading" name="signbtn" id="signBtn">Sign up</button>
-						<a href="login.php" class="headingBlue">Login</a>
-					</div>
-				</form>
+<div  class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<span class="typosBlue">
+				to make highly nutritious “ready-to-use food”<br> products more accessible and affordable to those who need them most,<br> while also increasing awareness of their benefits and therefore generating demand.
 
-				
-			</div>
+
+			</span>
+			<hr class="new4">
+
+
 			
 		</div>
-		
 	</div>
+</div>						
 
-							<!---Footer--->
+
+
+
+
+
+
+
+
+
+						<!---Footer--->
 
 	<div class="container-fluid blue footer">
 		<div class="row">
 			<div class="col-sm-5 p-3" style="margin-left: 55px;">
 				<ul>
 					<li>
-						<a class="text-white typos links" href="aboutus.php" target="_blank">About Us</a>
+						<a class="text-white typos links" href="aboutus.php">About Us</a>
 					</li>
 					<li>
-						<a class="text-white typos links" href="contactus.php" target="_blank">Contact Us</a>
+						<a class="text-white typos links" href="contactus.php">Contact Us</a>
 					</li>
 					<li>
 						<a class="text-white typos links" href="#">Policy</a>
@@ -236,11 +151,10 @@
 		</div>
 	</div>
 
-	<link rel="stylesheet" type="text/css" href="jquerydownload.js">
-						<!-- JS Files-->
+
+						 <!-- JS Files-->
 	<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 		
-
 </body>
 </html>

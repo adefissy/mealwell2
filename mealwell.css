@@ -108,6 +108,11 @@
 			text-decoration: none;
 		}
 
+		.healthypost{
+			text-decoration: none;
+			color: rgb(39,76,119);
+		}
+
 		
 		
 		.footer{
@@ -157,9 +162,6 @@
 		#overlay{
 			background-color:rgba(0,0,0,0.9);
 			height: 700px;
-
-
-
 		} 
 
 		.aboutOverlay{
@@ -185,7 +187,12 @@
 		height:600px;	
 		}
 
-		.submenu{
+		.submenu a{
+			color: rgb(103,148,54);
+			text-decoration: none;
+		}
+
+		.dateposted{
 			color: rgb(103,148,54);
 		}
 

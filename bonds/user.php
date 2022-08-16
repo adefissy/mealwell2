@@ -189,32 +189,10 @@ class User {
          return $records;
     }
 
-       
-
-    public function getComment($comment){
-
-        #prepare statement
-        $statement = $this->konn->prepare("SELECT * FROM comment JOIN post ON post.comment_id = post.category_id");
-
-        #bind parameter
-
-        $statement->bind_param("i", $postid);
-
-        #execute
-        $statement->execute();
-
-        #get result
-        $result = $statement->get_result();
-
-        return $result->fetch_assoc();
-     }
-
-
-
-  
+    
 
       
-    }
+  }
    
     
 ?>

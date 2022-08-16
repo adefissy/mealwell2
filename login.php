@@ -35,7 +35,7 @@
 
 		$userobj = new User();
 
-        //makerefer
+
         $result = $userobj->login($_POST['emailaddress'],$_POST['pword']);
 		if ($result == true) {
 
